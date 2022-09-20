@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+            <img src="/static/img/logo.png" class="brand_logo" alt="Logo">
+        </div>
+    </div>
+    <nav class="d-flex justify-content-between align-items-center col-12">
+        <h1 class="text-center">Cliente {{user.nombre}} {{user.apellido}}</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/logout" class="btn btn-info">Salir</a>
+        </div>
+
+    </nav>
+
+    <div class="col-8 mx-auto">
+        <table class="table table-hover">
+            <h1 class="text-center">Auto</h1>
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+
+
+                <tr>
+                    <td>{{cliente.placa}} {{cliente.id_usuario}}</td>
+                    <td><a href="/ver/procesocli/{{cliente.id_proceso}}">Ver</a>
+                </tr>
+
+                {% endfor %}        
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>

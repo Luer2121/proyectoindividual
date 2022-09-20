@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Estado</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+            <img src="..//static/img/logo.png" class="brand_logo" alt="Logo">
+        </div>
+    </div>
+    <div class="container">
+
+        <form class="well form-horizontal" action="/update/proceso" method="post"  id="contact_form">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend><center><h2><b>Actualizar Proceso Auto</b></h2></center></legend><br>
+    
+    <!-- Text input-->
+    <input type="hidden" name="id_proceso" value={{edit.id_proceso}}>
+    <div class="form-group">
+        <label class="col-md-4 control-label">ABC motor</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="abcmotor" placeholder="{{edit.abcmotor}}" class="form-control"  type="text" value="{{edit.abcmotor}}">
+            </div>
+        </div>
+    </div>
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" >ABC frenos</label> 
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="abcfrenos" class="form-control"  type="text" value="{{edit.abcfrenos}}">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Suspension</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="suspension" class="form-control"  type="text" value="{{edit.suspension}}">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Liquidos</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="liquidos" class="form-control"  type="text" value="{{edit.liquidos}}">
+            </div>
+        </div>
+    </div>
+
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Luces</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="luces"  class="form-control"  type="text" value="{{edit.luces}}">
+            </div>
+        </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+    <div class="col-md-4"><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGuardar <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+    </div>
+    </div>
+    
+    </fieldset>
+    </form>
+    </div>
+        </div><!-- /.container -->
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br>
+                <a href="/dashboard" class="btn btn-warning" >Volver<span class="glyphicon glyphicon-send"></span></a>
+            </div>
+    
+
+</body>
+</html>

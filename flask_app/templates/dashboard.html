@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+            <img src="/static/img/logo.png" class="brand_logo" alt="Logo">
+        </div>
+    </div>
+    <nav class="d-flex justify-content-between align-items-center col-12">
+        <h1 class="text-center">Administador {{user.nombre}} {{user.apellido}}</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/new/cliente" class="btn btn-primary">Agregar Cliente</a>
+            <a href="/new/auto" class="btn btn-primary">Agregar Auto</a>
+            <a href="/logout" class="btn btn-info">Salir</a>
+        </div>
+
+    </nav>
+    <div class="col-8 mx-auto">
+
+        <table class="table table-hover">
+            <h1 class="text-center">Autos en proceso</h1>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Placa</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                    {% if cliente.abcmotor == "None" or cliente.abcfrenos == "None" or cliente.suspension == "None" or cliente.liquidos == "None"  or cliente.luces == "None" or not cliente.abcmotor or not cliente.abcfrenos or not cliente.suspension or  not cliente.liquidos or not cliente.luces%}
+                    <tr>
+                        <td>{{cliente.nombre}} {{cliente.apellido}}</td>
+                        <td>{{cliente.placa}}</td>          
+                        <td>
+                            {% if cliente.id_proceso == None %}
+                                <a href="/start/estado/{{cliente.id_auto}}">Empezar</a>
+                            {% endif %}                        
+
+                            {% if cliente.id_proceso != None %}
+                            <a href="/edit/estado/{{cliente.id_proceso}}">Actualizar</a>
+                            {% endif %}                                                        
+                        </td>
+                    </tr>    
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-8 mx-auto">
+        <table class="table table-hover">
+            <h1 class="text-center">Autos entregados</h1>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Placa</th>
+                    <th>Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                    {% if cliente.abcmotor != "None" and cliente.abcfrenos != "None" and cliente.suspension != "None" and cliente.liquidos != "None"  and cliente.luces != "None" and cliente.abcmotor and cliente.abcfrenos and cliente.suspension and cliente.liquidos and cliente.luces %}
+
+                <tr>
+                    <td>{{cliente.nombre}} {{cliente.apellido}}</td>
+                    <td>{{cliente.placa}}</td>
+                    <td><a href="/ver/proceso/{{cliente.id_proceso}}">Ver</a>
+                </tr>
+
+                    {% endif %}
+                {% endfor %}        
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>

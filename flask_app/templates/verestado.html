@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+</head>
+<body>
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="brand_logo_container">
+                <img src="/static/img/logo.png" class="brand_logo" alt="Logo">
+            </div>
+        </div>
+        <form class="well form-horizontal" action="/update/proceso" method="post"  id="contact_form">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend><center><h2><b>Actualizar Proceso Auto</b></h2></center></legend><br>
+    
+    <!-- Text input-->
+
+    <input type="hidden" name="id_proceso" value={{estado.id_proceso}}>
+    <div class="form-group">
+        <label class="col-md-4 control-label">ABC motor: {{estado.abcmotor}}</label>  
+    </div>
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" >ABC frenos: {{estado.abcfrenos}}</label> 
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Suspension: {{estado.suspension}}</label>  
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Liquidos: {{estado.liquidos}}</label>  
+    </div>
+
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Luces: {{estado.luces}}</label>  
+    </div>
+
+    </fieldset>
+    </form>
+    </div>
+        </div><!-- /.container -->
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br>
+                <a href="/dashboard" class="btn btn-warning" >Volver<span class="glyphicon glyphicon-send"></span></a>
+            </div>
+    
+
+</body>
+</html>

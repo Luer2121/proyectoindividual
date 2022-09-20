@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Cliente</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+    <script>
+        function validateRegister() {
+
+            let vemail = document.forms["register"]["correo"].value;
+
+
+            if (document.forms["register"]["clave"].value != document.forms["register"]["confirmar"].value) {
+                alert("Contraseñas no coinciden");
+            return false;
+            }
+        }
+        </script>
+
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+            <img src="/static/img/logo.png" class="brand_logo" alt="Logo">
+        </div>
+    </div>
+    <div class="container">
+
+        <form name="register" class="well form-horizontal" action="/create/cliente" method="post"  id="contact_form" onsubmit="return validateRegister()">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend><center><h2><b>Registro Cliente</b></h2></center></legend><br>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">Nombre</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="nombre" placeholder="Nombre" class="form-control"  type="text" required minlength="3" maxlength="255">
+            </div>
+        </div>
+    </div>
+    <!-- Text input-->
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Apellido</label> 
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="apellido" placeholder="Apellido" class="form-control"  type="text" required minlength="3" maxlength="255">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label">Correo</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input name="correo" placeholder="Correo" class="form-control"  type="text" required minlength="3" maxlength="255">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Clave</label> 
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="clave" placeholder="Clave" class="form-control"  type="password" required minlength="8" maxlength="255">
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" >Confirmar Clave</label> 
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="confirmar" placeholder="Confirmar Clave" class="form-control"  type="password" required>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegistrar<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+        </div>
+    </div>
+    
+    </fieldset>
+    </form>
+    </div>
+        </div><!-- /.container -->
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br>
+                <a href="/dashboard" class="btn btn-warning" >Volver<span class="glyphicon glyphicon-send"></span></a>
+            </div>
+
+</body>
+</html>
